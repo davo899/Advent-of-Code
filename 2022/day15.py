@@ -39,9 +39,6 @@ for sx, sy, bx, by in sensors:
 
 result = (-1, -1)
 for i in range(4_000_000):
-  if i % 100000 == 0:
-    print(i)
-
   excluded_ranges = []
   for sx, sy, r in ranges:
     d = r - abs(sy - i)
@@ -58,4 +55,4 @@ for i in range(4_000_000):
     if end > max_:
       max_ = end
 
-print(result)
+print(f"Part 2: {(4_000_000 * result[0]) + result[1]}")
