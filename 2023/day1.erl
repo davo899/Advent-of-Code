@@ -5,7 +5,7 @@
 -import(deque,[new_deque/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1]).
 -import(sets,[new/0, add_element/2, del_element/2, filter/2, from_list/1, intersection/1, intersection/2, is_disjoint/2, is_element/2]).
 -import(string, [prefix/2]).
--export([part1/0, part2/0, digits/1, calib/1, word_digits/1]).
+-export([part1/0, part2/0]).
 
 digits([]) -> [];
 digits([C|Line]) ->
