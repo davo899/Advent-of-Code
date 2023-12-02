@@ -46,7 +46,7 @@ part1() -> id_sum(
     lists:map(fun possible/1,
     lists:map(fun get_words/1,
     lists:map(fun lists:droplast/1,
-        readlines('day2.txt')
+        readlines('input/day2.txt')
     )))).
 
 min_cubes(L) -> min_cubes(L, -1, -1, -1).
@@ -77,5 +77,5 @@ part2() -> lists:sum(
     lists:map(fun min_cubes/1,
     lists:map(fun get_words/1,
     lists:map(fun lists:droplast/1,
-        readlines('day2.txt')
+        readlines('input/day2.txt')
     )))).

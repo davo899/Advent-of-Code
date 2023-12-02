@@ -18,7 +18,12 @@ digits([C|Line]) ->
 
 calib([D|Digits]) -> D ++ lists:last([D|Digits]).
 
-part1() -> lists:sum(lists:map(fun list_to_integer/1, lists:map(fun calib/1, lists:map(fun digits/1, readlines('day1.txt'))))).
+part1() -> lists:sum(
+    lists:map(fun list_to_integer/1,
+    lists:map(fun calib/1,
+    lists:map(fun digits/1,
+        readlines('input/day1.txt')
+    )))).
 
 word_digits([]) -> [];
 word_digits([C|T]) ->
@@ -50,4 +55,9 @@ word_digits([C|T]) ->
             end
     end.
 
-part2() -> lists:sum(lists:map(fun list_to_integer/1, lists:map(fun calib/1, lists:map(fun word_digits/1, readlines('day1.txt'))))).
+part2() -> lists:sum(
+    lists:map(fun list_to_integer/1,
+    lists:map(fun calib/1,
+    lists:map(fun word_digits/1,
+        readlines('input/day1.txt')
+    )))).
