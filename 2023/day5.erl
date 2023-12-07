@@ -1,9 +1,7 @@
 % Advent of Code 2023 - Day 5
 -module(day5).
-
 -import(lists,[min/1, map/2, flatten/1]).
 -import(reader,[readlines/1, get_ints/1]).
-
 -export([part1/0, part2/0]).
 
 get_map([R|L]) when length(R) /= 3 -> get_map(L);

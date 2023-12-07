@@ -10,11 +10,11 @@ appendleft(Deque, Elem) -> Deque#deque{front = [Elem|Deque#deque.front]}.
 
 appendright(Deque, Elem) -> Deque#deque{back = [Elem|Deque#deque.back]}.
 
-popleft(#deque{front = [], back = [Head]}) -> {Head, new_deque()};
+popleft(#deque{front = [], back = [Head]}) -> {Head, #deque{front = [], back = []}};
 popleft(#deque{front = [], back = Back}) -> popleft(balance(#deque{front = [], back = Back}));
 popleft(#deque{front = [Head|Front], back = Back}) -> {Head, balance(#deque{front = Front, back = Back})}.
 
-popright(#deque{front = [Last], back = []}) -> {Last, new_deque()};
+popright(#deque{front = [Last], back = []}) -> {Last, #deque{front = [], back = []}};
 popright(#deque{front = Front, back = []}) -> popright(balance(#deque{front = Front, back = []}));
 popright(#deque{front = Front, back = [Last|Back]}) -> {Last, balance(#deque{front = Front, back = Back})}.
 

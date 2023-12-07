@@ -1,10 +1,8 @@
 % Advent of Code 2023 - Day 6
 -module(day6).
-
 -import(lists,[map/2, flatten/1]).
 -import(string, [to_integer/1]).
 -import(reader,[readlines/1, get_ints/1]).
-
 -export([part1/0, part2/0]).
 
 dists(T) -> dists(T, 0).
