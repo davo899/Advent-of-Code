@@ -1,8 +1,5 @@
 % Advent of Code 2023 - Day 2
 -module(day2).
--import(reader,[readlines/1]).
--import(lists,[droplast/1, sum/1]).
--import(string, [tokens/2, strip/3]).
 -export([part1/0, part2/0]).
 
 get_words(L) -> string:tokens(L, " ").
@@ -44,7 +41,7 @@ part1() -> id_sum(
     lists:map(fun possible/1,
     lists:map(fun get_words/1,
     lists:map(fun lists:droplast/1,
-        readlines('input/day2.txt')
+        reader:readlines('input/day2.txt')
     )))).
 
 min_cubes(L) -> min_cubes(L, -1, -1, -1).
@@ -75,5 +72,5 @@ part2() -> lists:sum(
     lists:map(fun min_cubes/1,
     lists:map(fun get_words/1,
     lists:map(fun lists:droplast/1,
-        readlines('input/day2.txt')
+        reader:readlines('input/day2.txt')
     )))).

@@ -1,8 +1,5 @@
 % Advent of Code 2023 - Day 1
 -module(day1).
--import(reader,[readlines/1]).
--import(lists,[sum/1, map/2, last/1]).
--import(string, [prefix/2]).
 -export([part1/0, part2/0]).
 
 digits([]) -> [];
@@ -20,7 +17,7 @@ part1() -> lists:sum(
     lists:map(fun list_to_integer/1,
     lists:map(fun calib/1,
     lists:map(fun digits/1,
-        readlines('input/day1.txt')
+        reader:readlines('input/day1.txt')
     )))).
 
 word_digits([]) -> [];
@@ -30,15 +27,15 @@ word_digits([C|T]) ->
         true -> [integer_to_list(N)|word_digits(T)];
         _ ->
             S = [C|T],
-            One = prefix(S, "one"),
-            Two = prefix(S, "two"),
-            Three = prefix(S, "three"),
-            Four = prefix(S, "four"),
-            Five = prefix(S, "five"),
-            Six = prefix(S, "six"),
-            Seven = prefix(S, "seven"),
-            Eight = prefix(S, "eight"),
-            Nine = prefix(S, "nine"),
+            One = string:prefix(S, "one"),
+            Two = string:prefix(S, "two"),
+            Three = string:prefix(S, "three"),
+            Four = string:prefix(S, "four"),
+            Five = string:prefix(S, "five"),
+            Six = string:prefix(S, "six"),
+            Seven = string:prefix(S, "seven"),
+            Eight = string:prefix(S, "eight"),
+            Nine = string:prefix(S, "nine"),
             if
                 One /= nomatch -> ["1"|word_digits(T)];
                 Two /= nomatch -> ["2"|word_digits(T)];
@@ -57,5 +54,5 @@ part2() -> lists:sum(
     lists:map(fun list_to_integer/1,
     lists:map(fun calib/1,
     lists:map(fun word_digits/1,
-        readlines('input/day1.txt')
+        reader:readlines('input/day1.txt')
     )))).

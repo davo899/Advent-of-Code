@@ -1,15 +1,6 @@
 % Advent of Code 2023 - Day 8
 -module(day8).
--compile({no_auto_import,[size/1]}).
-
--import(lists,[foldl/3, sort/2, seq/2, droplast/1, min/1, max/1, sum/1, delete/2, map/2, last/1, member/2, flatten/1, enumerate/1, all/2, any/2, nthtail/2, split/2]).
--import(string, [prefix/2, tokens/2, strip/3, to_integer/1]).
--import(math, [pow/2]).
--import(maps,[new/0, is_key/2, update/3, get/2, put/3, size/1, filter/2, fold/3, to_list/1, from_list/1, keys/1]).
-
--import(reader,[readlines/1, get_ints/1]).
-
--export([part1/0, part2/0, find2/4]).
+-export([part1/0, part2/0]).
 
 entries(Lines) -> entries(Lines, maps:new()).
 entries([], Map) -> Map;
@@ -34,7 +25,7 @@ find(Target, Current, Map, [Dir|Dirs], SDirs) ->
     1 + find(Target, move(Dir, Map, Current), Map, Dirs, SDirs).
 
 part1() -> 
-    [Dirs|[_|Lines]] = lists:map(fun lists:droplast/1, readlines('input/day8.txt')),
+    [Dirs|[_|Lines]] = lists:map(fun lists:droplast/1, reader:readlines('input/day8.txt')),
     Map = entries(Lines),
     find("ZZZ", "AAA", Map, Dirs, Dirs).
 
@@ -54,7 +45,7 @@ gcd(A,B) -> gcd(A, B-A).
 lcm(A,B) -> (A*B) div gcd(A, B).
 
 part2() -> 
-    [Dirs|[_|Lines]] = lists:map(fun lists:droplast/1, readlines('input/day8.txt')),
+    [Dirs|[_|Lines]] = lists:map(fun lists:droplast/1, reader:readlines('input/day8.txt')),
     Map = entries(Lines),
     Dists = lists:map(
             fun(C) -> find2(C, Map, Dirs, Dirs) end,

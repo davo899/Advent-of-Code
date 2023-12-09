@@ -1,7 +1,5 @@
 % Advent of Code 2023 - Day 5
 -module(day5).
--import(lists,[min/1, map/2, flatten/1]).
--import(reader,[readlines/1, get_ints/1]).
 -export([part1/0, part2/0]).
 
 get_map([R|L]) when length(R) /= 3 -> get_map(L);
@@ -23,7 +21,7 @@ apply_map([{DR, SR, RL}|M], X) ->
     end.
 
 part1() -> 
-    [Seeds|L] = lists:map(fun reader:get_ints/1, readlines('input/day5.txt')),
+    [Seeds|L] = lists:map(fun reader:get_ints/1, reader:readlines('input/day5.txt')),
     {SeedSoil, L2} = get_map(L),
     {SoilFert, L3} = get_map(L2),
     {FertWater, L4} = get_map(L3),
@@ -62,7 +60,7 @@ apply_map_to_range([{DR, SR, RL}|M], {S, R}, Mapped) -> if
     end.
 
 part2() -> 
-    [Seeds|L] = lists:map(fun reader:get_ints/1, readlines('input/day5.txt')),
+    [Seeds|L] = lists:map(fun reader:get_ints/1, reader:readlines('input/day5.txt')),
     SeedRanges = seed_ranges(Seeds),
     {SeedSoil, L2} = get_map(L),
     {SoilFert, L3} = get_map(L2),
