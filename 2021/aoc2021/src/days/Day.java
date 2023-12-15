@@ -10,7 +10,7 @@ public abstract class Day {
 
     protected List<String> input = new ArrayList<>();
 
-    protected Day(int n, boolean example) {
+    public Day(int n, boolean example) {
         if (n < 1 || n > 25) throw new IllegalArgumentException("Invalid day: " + n);
 
         try {
