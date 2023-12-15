@@ -1,10 +1,5 @@
 % Advent of Code 2023 - Day 7
 -module(day7).
--compile({no_auto_import,[size/1]}).
--import(lists,[sort/2, sum/1, map/2, enumerate/1, split/2]).
--import(string, [to_integer/1]).
--import(maps,[new/0, is_key/2, update/3, get/2, put/3, size/1, filter/2, to_list/1, from_list/1]).
--import(reader,[readlines/1, get_ints/1]).
 -export([part1/0, part2/0]).
 
 to_hand(Cards) -> to_hand(Cards, maps:new()).
@@ -82,7 +77,7 @@ part1() ->
             [_|R2] = R,
             {B, _} = string:to_integer(R2),
             {L, B} end,
-        readlines('input/day7.txt')
+        reader:readlines('input/day7.txt')
     )))))).
 
 score2(Hand) ->
@@ -167,5 +162,5 @@ part2() ->
             [_|R2] = R,
             {B, _} = string:to_integer(R2),
             {L, B} end,
-        readlines('input/day7.txt')
+        reader:readlines('input/day7.txt')
     )))))).

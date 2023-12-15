@@ -1,10 +1,9 @@
 -module(deque).
--import(lists, [reverse/1, split/2]).
--export([new_deque/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1]).
+-export([new/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1]).
 
 -record(deque, {front, back}).
 
-new_deque() -> #deque{front = [], back = []}.
+new() -> #deque{front = [], back = []}.
 
 appendleft(Deque, Elem) -> Deque#deque{front = [Elem|Deque#deque.front]}.
 

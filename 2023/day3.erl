@@ -1,9 +1,5 @@
 % Advent of Code 2023 - Day 3
 -module(day3).
--import(reader,[readlines/1]).
--import(lists,[droplast/1, sum/1, map/2]).
--import(sets,[new/0, add_element/2, is_element/2]).
--import(string, [to_integer/1]).
 -export([part1/0, part2/0]).
 
 get_part_number(_, [$.|_], _) -> error;
@@ -53,7 +49,7 @@ get_search_set(Set, [[C|R]|G], {X, Y}) -> if
     end.
 
 part1() -> 
-    G = lists:map(fun lists:droplast/1, readlines('input/day3.txt')),
+    G = lists:map(fun lists:droplast/1, reader:readlines('input/day3.txt')),
     lists:sum(get_part_numbers(G, get_search_set(G))).
 
 get_part_number(error) -> error;
@@ -88,5 +84,5 @@ part2() ->
     lists:sum(
     lists:map(fun([M|[N]]) -> M * N end,
     lists:filter(fun(NS) -> length(NS) == 2 end,
-        get_gear_part_numbers(lists:map(fun lists:droplast/1, readlines('input/day3.txt')))
+        get_gear_part_numbers(lists:map(fun lists:droplast/1, reader:readlines('input/day3.txt')))
     ))).
