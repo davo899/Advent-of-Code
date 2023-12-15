@@ -17,7 +17,7 @@ public class Day1 extends Day {
             if (next > current) count++;
             current = next;
         }
-        return count + "";
+        return String.valueOf(count);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Day1 extends Day {
             if (next > current) count++;
             current = next;
         }
-        return count + "";
+        return String.valueOf(count);
     }
 
 }
