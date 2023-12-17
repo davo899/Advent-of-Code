@@ -1,5 +1,5 @@
 -module(reader).
--export([readlines/1, get_ints/1, get_coords_of/2, get_grid_map/2]).
+-export([readlines/1, get_ints/1, get_coords_of/2, get_grid_map/2, get_coord_map/2]).
 
 readlines(FileName) ->
     {ok, Device} = file:open(FileName, [read]),
@@ -29,3 +29,10 @@ get_coords_of(C, [[_|R]|G], X, Y, Set) -> get_coords_of(C, [R|G], X + 1, Y, Set)
 
 get_grid_map(CS, Grid) ->
     maps:from_list(lists:map(fun(C) -> {C, get_coords_of(C, Grid)} end, CS)).
+
+get_coord_map(CS, Grid) ->
+    maps:from_list(lists:flatmap(fun(C) ->
+        lists:map(fun(P) -> {P, C} end,
+            sets:to_list(get_coords_of(C, Grid))
+        ) end,
+    CS)).

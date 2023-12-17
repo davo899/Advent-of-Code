@@ -1,5 +1,5 @@
 -module(deque).
--export([new/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1]).
+-export([new/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1, is_empty/1]).
 
 -record(deque, {front, back}).
 
@@ -31,3 +31,6 @@ balance(Deque) ->
 
         _ -> Deque
     end.
+
+is_empty(#deque{front = [], back = []}) -> true;
+is_empty(_) -> false.
