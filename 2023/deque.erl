@@ -1,5 +1,5 @@
 -module(deque).
--export([new/0, appendleft/2, appendright/2, popleft/1, popright/1, to_list/1, is_empty/1]).
+-export([new/0, appendleft/2, appendright/2, popleft/1, popright/1, from_list/1, to_list/1, is_empty/1]).
 
 -record(deque, {front, back}).
 
@@ -16,6 +16,8 @@ popleft(#deque{front = [Head|Front], back = Back}) -> {Head, balance(#deque{fron
 popright(#deque{front = [Last], back = []}) -> {Last, #deque{front = [], back = []}};
 popright(#deque{front = Front, back = []}) -> popright(balance(#deque{front = Front, back = []}));
 popright(#deque{front = Front, back = [Last|Back]}) -> {Last, balance(#deque{front = Front, back = Back})}.
+
+from_list(L) -> balance(#deque{front = L, back = []}).
 
 to_list(#deque{front = Front, back = Back}) -> Front ++ lists:reverse(Back).
 
