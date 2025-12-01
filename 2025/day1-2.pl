@@ -39,7 +39,4 @@ while( my $line = $file_handle->getline() ) {
         $count += 1;
     }
 }
-if ($dial == 0) {
-    $count++;
-}
 print $count;
