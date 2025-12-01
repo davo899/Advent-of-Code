@@ -38,7 +38,6 @@ while( my $line = $file_handle->getline() ) {
     if ($endZero && $way eq 'L') {
         $count += 1;
     }
-    print $dial . ", " . $count . ", " . $start . ", " . $end . ", " . "\n";
 }
 if ($dial == 0) {
     $count++;
